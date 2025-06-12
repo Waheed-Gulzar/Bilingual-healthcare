@@ -246,21 +246,48 @@ const Header = () => {
                     </div>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end">
-                    <DropdownMenuItem asChild>
-                      <Link to="/appointments">My Appointments</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link to="/doctors">My Doctors</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link to="/prescriptions">Prescriptions</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link to="/chat">Chat</Link>
-                    </DropdownMenuItem>
-                    <DropdownMenuItem asChild>
-                      <Link to="/settings">Settings</Link>
-                    </DropdownMenuItem>
+                    {isDoctor ? (
+                      // Doctor-specific menu items
+                      <>
+                        <DropdownMenuItem asChild>
+                          <Link to="/doctor/dashboard">Dashboard</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                          <Link to="/doctor/appointments">Appointments</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                          <Link to="/doctor/chat">Patient Messages</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                          <Link to="/doctor/patients">My Patients</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                          <Link to="/doctor/prescriptions">Write Prescriptions</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                          <Link to="/doctor/settings">Profile Settings</Link>
+                        </DropdownMenuItem>
+                      </>
+                    ) : (
+                      // Patient-specific menu items
+                      <>
+                        <DropdownMenuItem asChild>
+                          <Link to="/appointments">My Appointments</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                          <Link to="/doctors">My Doctors</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                          <Link to="/prescriptions">Prescriptions</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                          <Link to="/chat">Chat</Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                          <Link to="/settings">Settings</Link>
+                        </DropdownMenuItem>
+                      </>
+                    )}
                     <DropdownMenuSeparator />
                     <DropdownMenuItem onClick={handleLogout} className="text-red-500">
                       <LogOut className="mr-2 h-4 w-4" />
@@ -397,28 +424,55 @@ const Header = () => {
                     <DropdownMenuTrigger className="flex items-center gap-3">
                       <div className="text-right">
                         <p className="text-sm font-medium text-gray-900">{userName || userEmail}</p>
-                        <p className="text-xs text-gray-500">My Account</p>
+                        <p className="text-xs text-gray-500">{isDoctor ? 'Doctor' : 'My Account'}</p>
                       </div>
                       <div className="w-10 h-10 bg-gray-100 rounded-full overflow-hidden flex items-center justify-center">
                         <User className="text-gray-500" size={20} />
                       </div>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                      <DropdownMenuItem asChild>
-                        <Link to="/appointments">My Appointments</Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link to="/doctors">My Doctors</Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link to="/prescriptions">Prescriptions</Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link to="/chat">Chat</Link>
-                      </DropdownMenuItem>
-                      <DropdownMenuItem asChild>
-                        <Link to="/settings">Settings</Link>
-                      </DropdownMenuItem>
+                      {isDoctor ? (
+                        // Doctor-specific menu items
+                        <>
+                          <DropdownMenuItem asChild>
+                            <Link to="/doctor/dashboard">Dashboard</Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem asChild>
+                            <Link to="/doctor/appointments">Appointments</Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem asChild>
+                            <Link to="/doctor/chat">Patient Messages</Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem asChild>
+                            <Link to="/doctor/patients">My Patients</Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem asChild>
+                            <Link to="/doctor/prescriptions">Write Prescriptions</Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem asChild>
+                            <Link to="/doctor/settings">Profile Settings</Link>
+                          </DropdownMenuItem>
+                        </>
+                      ) : (
+                        // Patient-specific menu items
+                        <>
+                          <DropdownMenuItem asChild>
+                            <Link to="/appointments">My Appointments</Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem asChild>
+                            <Link to="/doctors">My Doctors</Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem asChild>
+                            <Link to="/prescriptions">Prescriptions</Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem asChild>
+                            <Link to="/chat">Chat</Link>
+                          </DropdownMenuItem>
+                          <DropdownMenuItem asChild>
+                            <Link to="/settings">Settings</Link>
+                          </DropdownMenuItem>
+                        </>
+                      )}
                       <DropdownMenuSeparator />
                       <DropdownMenuItem onClick={handleLogout} className="text-red-500">
                         <LogOut className="mr-2 h-4 w-4" />
