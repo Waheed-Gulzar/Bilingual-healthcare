@@ -20,12 +20,15 @@ import Calendar from "./pages/Calendar";
 import Settings from "./pages/Settings";
 import DoctorSignup from "./pages/DoctorSignup";
 import DoctorLogin from "./pages/DoctorLogin";
+import DoctorSettings from "./pages/doctor/doctorsettings"; 
 import DoctorProfileSetup from "./pages/DoctorProfileSetup";
 import DoctorPendingApproval from "./pages/DoctorPendingApproval";
 import DoctorDashboard from "./pages/DoctorDashboard";
 import DoctorAppointments from "./pages/doctor/DoctorAppointments";
 import DoctorPatients from "./pages/doctor/DoctorPatients";
 import DoctorAvailability from "./pages/doctor/DoctorAvailability";
+import DoctorChat from "./pages/doctor/DoctorChat";
+import DoctorPrescriptions from "./pages/doctor/doctorprescriptions";
 import PatientProfile from "./pages/doctor/PatientProfile";
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminAppointmentList from './pages/admin/AdminAppointmentList';
@@ -70,11 +73,11 @@ const App = () => {
               <Route path="/doctor/patients" element={<DoctorPatients />} />
               <Route path="/doctor/patient/:id" element={<PatientProfile />} />
               <Route path="/doctor/availability" element={<DoctorAvailability />} />
-              <Route path="/doctor/prescriptions" element={<Prescriptions />} />
-              
-              <Route path="/doctor/chat" element={<Chat />} />
-              <Route path="/doctor/settings" element={<Settings />} />
-              
+              <Route path="/doctor/prescriptions" element={<DoctorPrescriptions />} />
+
+              <Route path="/doctor/chat" element={<DoctorChat />} />
+              <Route path="/doctor/settings" element={<DoctorSettings />} />
+
               <Route path="/admin" element={<AdminDashboard />} />
               <Route path="/admin/appointments" element={<AdminAppointmentList />} />
               <Route path="/admin/dashboard" element={<AdminDashboard />} />
